@@ -11,7 +11,7 @@
           <ion-title size="large">Tab 1</ion-title>
         </ion-toolbar>
       </ion-header>
-    <ion-button @click="openmodal">open modal</ion-button>
+    <ion-button @click="setRouteQuery">set route param</ion-button>
       <ExploreContainer name="Tab 1 page" />
     </ion-content>
   </ion-page>
@@ -25,22 +25,14 @@ export default  {
   name: 'Tab1',
   components: { ExploreContainer, IonHeader, IonToolbar, IonTitle, IonContent, IonPage, IonButton },
   methods: {
-    async openmodal() {
-          const modal = await modalController
-            .create({
-              component: Modal,
-              cssClass: 'my-custom-class',
-              componentProps: {
-                data: {
-                  content: 'New Content',
-                },
-                propsData: {
-                  title: 'New title',
-                },
-              },
-            })
-          return modal.present();
-        },
+    setRouteQuery() {
+      const queryParam = {
+        workshopdirectory: 'test',
+        workshopid: 'test2',
+        title: 'test3',
+      };
+      this.$router.push({ query: queryParam });
+    },
   }
 }
 </script>
