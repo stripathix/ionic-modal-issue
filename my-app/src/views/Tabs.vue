@@ -36,6 +36,28 @@ export default {
       square, 
       triangle,
     }
-  }
+  },
+  mounted() {
+    console.log(this)
+  },
+  methods: {
+    ionViewDidEnter() {
+      console.log('Home page did enter');
+      console.log(this)
+      this.test()
+    },
+    ionViewDidLeave() {
+      console.log('Home page did leave');
+    },
+    ionViewWillEnter() {
+      console.log('Home page will enter');
+    },
+    ionViewWillLeave() {
+      console.log('Home page will leave');
+    },
+    test() {
+      console.log(this);
+    },
+  },
 }
 </script>
