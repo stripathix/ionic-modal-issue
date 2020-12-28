@@ -30,3 +30,14 @@ const app = createApp(App)
 router.isReady().then(() => {
   app.mount('#app');
 });
+app.config.errorHandler = function (err, vm, info) {
+  debugger
+};
+window.onerror = function (message, source, lineno, colno, error) {
+  debugger
+  window.console.log(error);
+};
+window.addEventListener('unhandledrejection', (event) => {
+  debugger
+  window.console.error(`Reason: ${event.reason}`);
+});
